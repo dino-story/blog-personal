@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Personal | Luz Estefania Urbano Padilla</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body { 
+            background: #f4f6f8; 
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+        .hero { 
+            padding: 50px 0; 
+        }
+        .hero img { 
+            width: 140px; 
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%; 
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        section { 
+            scroll-margin-top: 30px; 
+        }
+        .card-image img { 
+            height: 220px; 
+            object-fit: cover; 
+        }
+        .btn-flotante {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+        }
+        .article-full-content {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body id="inicio">
+
+    <!-- Header & Navbar -->
+    <header>
+        <nav class="indigo darken-3">
+            <div class="nav-wrapper container">
+                <a href="#inicio" class="brand-logo"><i class="material-icons left">code</i>Luz Urbano</a>
+                <a href="#" data-target="menu-movil" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#inicio"><i class="material-icons left">home</i>Inicio</a></li>
+                    <li><a href="#publicaciones"><i class="material-icons left">article</i>Publicaciones</a></li>
+                    <li><a href="#sobre-mi"><i class="material-icons left">person</i>Sobre mí</a></li>
+                    <li><a href="#experiencia"><i class="material-icons left">work</i>Experiencia</a></li>
+                    <li><a href="#contacto"><i class="material-icons left">email</i>Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Sidenav móvil -->
+        <ul class="sidenav" id="menu-movil">
+            <li><div class="user-view">
+                <div class="background indigo darken-2"></div>
+                <a href="#inicio"><img class="circle" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Avatar"></a>
+                <a href="#inicio"><span class="white-text name">Luz Estefania Urbano Padilla</span></a>
+                <a href="#inicio"><span class="white-text email">luzurbanop@gmail.com</span></a>
+            </div></li>
+            <li><a href="#inicio" class="sidenav-close"><i class="material-icons">home</i>Inicio</a></li>
+            <li><a href="#publicaciones" class="sidenav-close"><i class="material-icons">article</i>Publicaciones</a></li>
+            <li><a href="#sobre-mi" class="sidenav-close"><i class="material-icons">person</i>Sobre mí</a></li>
+            <li><a href="#experiencia" class="sidenav-close"><i class="material-icons">work</i>Experiencia</a></li>
+            <li><a href="#contacto" class="sidenav-close"><i class="material-icons">email</i>Contacto</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero indigo lighten-5">
+            <div class="container center-align">
+                <img src="Curriculum.jpeg" alt="Avatar de Luz Estefania">
+                <h3 class="indigo-text text-darken-4">Luz Estefania Urbano Padilla</h3>
+                <p class="flow-text grey-text text-darken-2">Ingeniera en Mecatrónica y estudiante de Ingeniería en Software en la Universidad Estatal de Sonora (UES). Apasionada por el desarrollo tecnológico, la impresión 3D, el K-pop y la música de Demi Lovato.</p>
+                <div class="row center" style="margin-top: 20px;">
+                    <div class="col s12">
+                        <div class="chip indigo white-text"><i class="material-icons tiny">code</i> Software & Mecatrónica</div>
+                        <div class="chip indigo white-text"><i class="material-icons tiny">music_note</i> K-pop & Conciertos</div>
+                        <div class="chip indigo white-text"><i class="material-icons tiny">print</i> Impresión 3D</div>
+                        <div class="chip indigo white-text"><i class="material-icons tiny">album</i> Fan de Demi Lovato</div>
+                    </div>
+                </div>
+                <a href="#publicaciones" class="btn waves-effect waves-light indigo darken-3" style="margin-top: 15px;">
+                    Ver publicaciones <i class="material-icons right">arrow_downward</i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Publicaciones / Artículos -->
+        <section id="publicaciones" class="container" style="padding: 40px 0;">
+            <h4 class="center-align indigo-text text-darken-3">Mis publicaciones y proyectos</h4>
+            <p class="center-align grey-text" style="margin-bottom: 30px;">Artículos técnicos basados en mi formación académica, pasatiempos y experiencia profesional.</p>
+            <div class="row" id="lista-articulos"></div>
+        </section>
+
+        <section id="sobre-mi" class="container" style="padding: 20px 0;">
+            <div class="card-panel z-depth-2">
+                <h4 class="indigo-text text-darken-3"><i class="material-icons left">account_circle</i>Sobre mí</h4>
+                <p class="flow-text" style="font-size: 1.1rem;">
+                    Soy alumna de la Universidad Estatal de Sonora (UES) cursando simultáneamente o con trayectoria en las ingenierías en Software y Mecatrónica. Me especializo en el desarrollo de soluciones tecnológicas que unen el software y el hardware. Cuento con experiencia profesional en soporte técnico de redes en <strong>ENI Networks</strong>, modelado CAD e impresión 3D en <strong>Carrier Planta Navojoa</strong>, y asesorías académicas en matemáticas a través del programa PASA. Fuera del ámbito profesional y académico, disfruto enormemente escuchar K-pop, asistir a conciertos en vivo, crear modelos en 3D y seguir la inspiradora trayectoria musical de Demi Lovato.
+                </p>
+                <h5 class="indigo-text text-darken-2" style="margin-top: 25px;">Habilidades Técnicas</h5>
+                <div style="margin-top: 15px;">
+                    <div class="chip">Java / C# / Python</div>
+                    <div class="chip">HTML5 / CSS3 / JavaScript</div>
+                    <div class="chip">SQL Server / PostgreSQL</div>
+                    <div class="chip">SolidWorks & Impresión 3D</div>
+                    <div class="chip">Git / GitHub / Docker</div>
+                    <div class="chip">Redes y Configuración WISP</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiencia" class="container" style="padding: 20px 0 40px 0;">
+            <div class="card-panel z-depth-2">
+                <h4 class="indigo-text text-darken-3"><i class="material-icons left">work</i>Trayectoria y Certificaciones</h4>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <h5 class="indigo-text text-darken-2">Experiencia Profesional</h5>
+                        <ul class="collection">
+                            <li class="collection-item"><strong>ENI Networks:</strong> Becaria de Ingeniería en el CAT (2026).</li>
+                            <li class="collection-item"><strong>UES:</strong> Asesora Académica PASA en matemáticas (2019-2026).</li>
+                            <li class="collection-item"><strong>Carrier Planta Navojoa:</strong> Practicante de Ingeniería / Modelado 3D (2022).</li>
+                        </ul>
+                    </div>
+                    <div class="col s12 m6">
+                        <h5 class="indigo-text text-darken-2">Certificaciones</h5>
+                        <ul class="collection">
+                            <li class="collection-item"><strong>SolidWorks CSWA:</strong> Mechanical Design (2021).</li>
+                            
+                            <li class="collection-item"><strong>Automatización y Control Industrial:</strong> Diplomado UES (2021).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="container" style="padding: 20px 0 50px 0;">
+            <h4 class="center-align indigo-text text-darken-3">Contacto</h4>
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="card-panel z-depth-2">
+                        <form id="formulario">
+                            <div class="input-field">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="nombre" type="text" required>
+                                <label for="nombre">Nombre</label>
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons prefix">email</i>
+                                <input id="correo" type="email" required>
+                                <label for="correo">Correo electrónico</label>
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons prefix">message</i>
+                                <textarea id="mensaje" class="materialize-textarea" required></textarea>
+                                <label for="mensaje">Mensaje</label>
+                            </div>
+                            <div class="center-align">
+                                <button class="btn waves-effect waves-light indigo darken-3" type="submit">
+                                    Enviar mensaje <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Botón flotante superior -->
+    <div class="btn-flotante">
+        <a href="#inicio" class="btn-floating btn-large waves-effect waves-light pink accent-2 tooltipped" data-position="left" data-tooltip="Volver arriba">
+            <i class="material-icons">arrow_upward</i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer indigo darken-4">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Blog Personal de Luz Urbano</h5>
+                    <p class="grey-text text-lighten-4">Ingeniería en Software & Mecatrónica - Universidad Estatal de Sonora (UES).</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Navegación</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#inicio">Inicio</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#publicaciones">Publicaciones</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#sobre-mi">Sobre mí</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#experiencia">Experiencia</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright indigo darken-5">
+            <div class="container center-align">
+                © 2026 Luz Estefania Urbano Padilla. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            M.Sidenav.init(document.querySelectorAll(".sidenav"));
+            M.Tooltip.init(document.querySelectorAll(".tooltipped"));
+
+            // Artículos integrando la vida académica, impresión 3D, música y K-pop
+            const articulos = [
+                {
+                    titulo: "El poder del K-pop y los conciertos en vivo",
+                    fecha: "10 de octubre de 2026",
+                    descripcion: "Cómo la energía de la música y la precisión escénica del K-pop inspiran la creatividad diaria.",
+                    imagen: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80",
+                    contenidoCompleto: "El K-pop representa una fusión perfecta entre producciones musicales impecables y despliegues visuales impresionantes. Asistir a conciertos en vivo transmite una dosis masiva de energía que equilibra perfectamente las exigencias de estudiar dos ingenierías y programar software avanzado."
+                },
+                {
+                    titulo: "Impresión 3D aplicada a proyectos de ingeniería",
+                    fecha: "12 de octubre de 2026",
+                    descripcion: "De la experiencia en Carrier Planta Navojoa al desarrollo de prototipos físicos funcionales.",
+                    imagen: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+                    contenidoCompleto: "Gracias a mi experiencia práctica en modelado CAD y prototipado en Carrier, la impresión 3D se ha convertido en una herramienta clave para materializar diseños mecatrónicos. Entender tolerancias de materiales y parámetros de extrusión fortalece cualquier perfil técnico."
+                },
+                {
+                    titulo: "Demi Lovato: Evolución vocal y resiliencia",
+                    fecha: "15 de octubre de 2026",
+                    descripcion: "Un repaso por la fuerza interpretativa y el impacto emocional de su discografía.",
+                    imagen: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80",
+                    contenidoCompleto: "La música de Demi Lovato destaca por su enorme potencia vocal y honestidad lírica. Escuchar sus álbumes mientras escribo código o resuelvo problemas de ingeniería aporta una enorme fuente de motivación y enfoque personal."
+                },
+                {
+                    titulo: "Desarrollo Frontend con Materialize CSS",
+                    fecha: "20 de octubre de 2026",
+                    descripcion: "Retos y buenas prácticas en la maquetación de interfaces web responsivas.",
+                    imagen: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80",
+                    contenidoCompleto: "Desarrollar este blog personal para la Universidad Estatal de Sonora aplicando Materialize CSS permitió consolidar conceptos clave de diseño adaptable, manejo de DOM con JavaScript y estructuración limpia de componentes frontend."
+                }
+            ];
+
+            const contenedor = document.getElementById("lista-articulos");
+
+            articulos.forEach(articulo => {
+                const colDiv = document.createElement("div");
+                colDiv.className = "col s12 m6 l3";
+
+                const cardDiv = document.createElement("div");
+                cardDiv.className = "card hoverable";
+
+                const cardImage = document.createElement("div");
+                cardImage.className = "card-image";
+                const img = document.createElement("img");
+                img.src = articulo.imagen;
+                img.alt = articulo.titulo;
+                cardImage.appendChild(img);
+
+                const cardContent = document.createElement("div");
+                cardContent.className = "card-content";
+                
+                const titleSpan = document.createElement("span");
+                titleSpan.className = "card-title activator grey-text text-darken-4";
+                titleSpan.style.fontSize = "1.2rem";
+                titleSpan.style.lineHeight = "1.4rem";
+                titleSpan.textContent = articulo.titulo;
+
+                const smallDate = document.createElement("small");
+                smallDate.className = "indigo-text";
+                smallDate.textContent = articulo.fecha;
+
+                const pDesc = document.createElement("p");
+                pDesc.style.marginTop = "10px";
+                pDesc.textContent = articulo.descripcion;
+
+                const fullContentDiv = document.createElement("div");
+                fullContentDiv.className = "article-full-content";
+                fullContentDiv.textContent = articulo.contenidoCompleto;
+
+                cardContent.appendChild(titleSpan);
+                cardContent.appendChild(smallDate);
+                cardContent.appendChild(pDesc);
+                cardContent.appendChild(fullContentDiv);
+
+                const cardAction = document.createElement("div");
+                cardAction.className = "card-action";
+                
+                const readMoreBtn = document.createElement("a");
+                readMoreBtn.href = "#!";
+                readMoreBtn.className = "indigo-text text-darken-2";
+                readMoreBtn.innerHTML = '<i class="material-icons left tiny">chrome_reader_mode</i> Leer más';
+                
+                let expanded = false;
+                readMoreBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    expanded = !expanded;
+                    if (expanded) {
+                        fullContentDiv.style.display = "block";
+                        readMoreBtn.innerHTML = '<i class="material-icons left tiny">expand_less</i> Leer menos';
+                    } else {
+                        fullContentDiv.style.display = "none";
+                        readMoreBtn.innerHTML = '<i class="material-icons left tiny">chrome_reader_mode</i> Leer más';
+                    }
+                });
+
+                cardAction.appendChild(readMoreBtn);
+                cardDiv.appendChild(cardImage);
+                cardDiv.appendChild(cardContent);
+                cardDiv.appendChild(cardAction);
+                colDiv.appendChild(cardDiv);
+                contenedor.appendChild(colDiv);
+            });
+
+            // Validación de formulario
+            document.getElementById("formulario").addEventListener("submit", evento => {
+                evento.preventDefault();
+                if (evento.target.checkValidity()) {
+                    M.toast({html: '<i class="material-icons left">check_circle</i> ¡Mensaje enviado con éxito!', classes: 'green rounded'});
+                    evento.target.reset();
+                    M.updateTextFields();
+                } else {
+                    M.toast({html: '<i class="material-icons left">error</i> Completa todos los campos.', classes: 'red rounded'});
+                }
+            });
+        });
+    </script>
+</body>
+</html>
